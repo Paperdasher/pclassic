@@ -1,8 +1,19 @@
 import java.util.Scanner;
 import java.io.File;
+import java.util.ArrayDeque;
 
 public class p4 {
     public static int eval(String expression){
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+        String[] components = expression.split("");
+        for(int i = 0; i < components.length; i++){
+            try{
+              stack.add(Integer.parseInt(components[i]));
+            }catch(NumberFormatException e){          
+              stack.add(apply(stack.removeLast(), Integer.parseInt(components[i+1]), components[i]));
+            }
+          }
         return -1;
       }
 
