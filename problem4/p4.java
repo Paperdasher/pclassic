@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class p4 {
     public static int eval(String expression){
@@ -7,7 +8,7 @@ public class p4 {
         int result = Integer.parseInt(components[0]);
 
 
-        for(int i = 0; i < components.length - 2; i++){
+        for(int i = 1; i < components.length - 2; i += 2){
             result += apply(result, Integer.parseInt(components[i + 1]), components[i]);
         }
         return result;
@@ -40,11 +41,16 @@ public class p4 {
 
                 File ans = new File("output" + args[0] + ".txt");
                 Scanner sc2 = new Scanner(ans);
-                String answer = sc2.nextLine();
+                int answer = sc2.nextInt();
                 sc2.close();
-                System.out.println(eval(expression) == Integer.parseInt(answer));
+                System.out.println(eval(expression) == answer);
+            }catch(FileNotFoundException e){
+                System.out.println("File not found or error reading file: " + e.getMessage());
+                e.printStackTrace();
+                return;
             }catch(Exception e){
-                System.out.println("File not found or error reading file.");
+                System.out.println("Error: " + e.getMessage());
+                e.printStackTrace();
                 return;
             }
 
