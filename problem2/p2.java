@@ -30,6 +30,11 @@ public class p2 {
             notzero = 0;
         }
 
+        if (rowcount > maxrows) {
+            maxrows = rowcount;
+        }
+        
+
         sc.close();
         return maxrows;
     }
