@@ -30,4 +30,18 @@ public class p1 {
 
         return count;
     }
+
+    public static void main(String[] args) {
+        if(args.length > 0){
+            if(args[0].equals("1")){
+                boolean result = sol("input1.txt") == 3;
+                System.out.println("File 1: " + result);
+            }
+            if(args[0].equals("2")){
+            boolean result = sol("input2.txt") == 11;
+                System.out.println("File 2: " + result);
+            }
+        }
+    }
+
 }
