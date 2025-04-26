@@ -8,8 +8,8 @@ public class p4 {
         int result = Integer.parseInt(components[0]);
 
 
-        for(int i = 1; i < components.length - 2; i += 2){
-            result += apply(result, Integer.parseInt(components[i + 1]), components[i]);
+        for(int i = 1; i < components.length - 1; i += 2){
+            result = apply(result, Integer.parseInt(components[i + 1]), components[i]);
         }
         return result;
       }
@@ -43,7 +43,8 @@ public class p4 {
                 Scanner sc2 = new Scanner(ans);
                 int answer = sc2.nextInt();
                 sc2.close();
-                System.out.println(eval(expression) == answer);
+                boolean calc = eval(expression) == answer;
+                System.out.println("" + calc + ": " + eval(expression));
             }catch(FileNotFoundException e){
                 System.out.println("File not found or error reading file: " + e.getMessage());
                 e.printStackTrace();
