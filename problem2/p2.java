@@ -10,15 +10,12 @@ public class p2 {
         int rowcount = 0;
         int maxrows = 0;
 
-        outerLoop:
+
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
                 int num = sc.nextInt();
                 if(num != 0){
                     notzero++;
-                }
-                if(num == 2){
-                    break outerLoop;
                 }
             }
             if(notzero == 0){
@@ -30,6 +27,7 @@ public class p2 {
                 }
                 rowcount = 0;
             }
+            notzero = 0;
         }
 
         sc.close();
@@ -37,6 +35,6 @@ public class p2 {
     }
 
     public static void main(String[] args){
-        System.out.println("Solution: " + sol());
+        System.out.println(sol());
     }
 }
